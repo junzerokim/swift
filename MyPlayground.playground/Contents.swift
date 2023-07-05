@@ -1,36 +1,45 @@
 import UIKit
 
-// Optional
-var someVariable : Int? = nil
-
-if someVariable == nil {
-    someVariable = 90
+// Struct
+struct YoutuberStruct {
+    var name: String
+    var subscribersCount: Int
 }
 
-if let otherVariable = someVariable {
-    print("Unwrapped. otherVariable: \(otherVariable)")
-} else {
-    print("Has a value")
-}
+var devJun = YoutuberStruct(name: "junyoung", subscribersCount: 100)
 
-someVariable = nil
+var devJunClone = devJun
 
-let myValue = someVariable ?? 10
-print("myValue: \(myValue)")
+print("=== Struct ===")
 
-var firstValue: Int? = 30
-var secondValue: Int? = 50
+print("값 넣기 전 devJunClone.name: \(devJunClone.name)")
 
-print("firstValue: \(firstValue)")
-print("secondValue: \(secondValue)")
+devJunClone.name = "jun"
 
-unWrap(firstValue)
-unWrap(secondValue)
+print("값 넣은 후 devJunClone.name: \(devJunClone.name)")
+print("값 넣은 후 devJun.name: \(devJun.name)")
 
-func unWrap(_ parameter: Int?) {
-    print("unwrap() called")
-    guard let unWrappedParam = parameter else {
-        return
+// Class
+class YoutuberClass {
+    var name: String
+    var subscribersCount: Int
+    // up memory
+    init(name: String, subscribersCount: Int) {
+        self.name = name
+        self.subscribersCount = subscribersCount
     }
-    print("unWrappedParam: \(unWrappedParam)")
 }
+
+var junyoung = YoutuberClass(name: "junyoung", subscribersCount: 1000)
+
+var junyoungClone = junyoung
+
+
+print("=== Class ===")
+
+print("값 넣기 전 junyoungClone.name: \(junyoungClone.name)")
+
+junyoungClone.name = "kimjunyoung"
+
+print("값 넣은 후 junyoungClone.name: \(junyoungClone.name)")
+print("값 넣은 후 junyoung.name: \(junyoung.name)")
